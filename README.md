@@ -16,7 +16,7 @@ User would be able to add stocks to a watch list, that way the user would only r
 ## Wire Frames
 ![home, not logged in](./assets/home_logout.png)
 ![home, logged in](./assets/home_login.png)
-![login](./assets/login.png)
+![about](./assets/about.png)
 ![login](./assets/login.png)
 ![logout](./assets/logout.png)
 ![register](./assets/register.png)
