@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+  {% block link %}
+  {% endblock link %}
+
+  {% if title %}
+    <title>Bull and Bear {{ title }}</title>
+  {% else %}
+    <title>Bull and Bear</title>
+  {% endif %}
+
+</head>
+<body>
+  <!-- Nav Bar -->
+  {% include 'partials/_navbar.html' %}
+  
+  <main role="main" class="container mb-1 mt-5 full-height">
+
+  <!-- Page Content -->
+    {% block content %} {% endblock content %}
+  </main>
+
+  <!-- Footer -->
+  {% include 'partials/_footer.html' %}
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- Custom JS Scripts -->
+  {% block script %}{% endblock script %}
+
+</body>
+</html>
