@@ -24,7 +24,7 @@ User would be able to add stocks to a watch list, that way the user would only r
 
 
 ## User Stories
-https://docs.google.com/document/d/1ZUVoVoCftjkkHxd4OwICTqOWof7UQPPMai8hac72Ilw/edit
+User Story text can be viewed [here](user_stories.md)
 
 ## Software Requirements
 https://github.com/night-traders/bull-bear/blob/main/requirements.md
