@@ -24,13 +24,13 @@ User would be able to add stocks to a watch list, that way the user would only r
 
 
 ## User Stories
-Coming soon...
+https://docs.google.com/document/d/1ZUVoVoCftjkkHxd4OwICTqOWof7UQPPMai8hac72Ilw/edit
 
 ## Software Requirements
-Coming soon...
+https://github.com/night-traders/bull-bear/blob/main/requirements.md
 
 ## Domain Modeling
-Coming soon...
+https://docs.google.com/drawings/d/1xuvEmNHJiQMPj4maDiDIR4pzicX3fjAEIxR8bpRGkIY/edit
 
 ## Database
 This app will be using PostgreSQL database.
