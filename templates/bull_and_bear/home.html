@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+<div class="white-background d-flex align-items-center justify-content-center p-3 m-4" >
+  <div>
+    <h1 class="content text-center mb-4">Bull and Bear</h1>
+    
+    {% if user.is_authenticated %}
+      <h1 class="content text-center mb-4">Welcome back, {{ user }}!</h1>
+      <h2>Stock predictions, news and more cool stuff coming</h2>
+    {% else %}
+    <p class="welcome-text">
+        If you are seeing this it is because you are not logged in. <br>
+
+      <a href="{% url 'login' %}">login here</a> or <a href="{% url 'register' %}">register here</a>.
+    </p>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}
+
