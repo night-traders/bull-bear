@@ -20,6 +20,8 @@ finnhub-python = "^2.2.1"
 numpy = "^1.19.2"
 sklearn = "^0.0"
 matplotlib = "^3.3.2"
+tf-nightly = "^2.5.0-alpha.20201027"
+tf-estimator-nightly = "^2.5.0-alpha.2020102701"
 
 [tool.poetry.dev-dependencies]
 
