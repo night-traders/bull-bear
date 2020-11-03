@@ -1,5 +1,5 @@
 <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color green darken-1">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color bg-primary darken-1">
   <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-plane-departure"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,13 +12,17 @@
           active
         {% endif %}
       ">
-        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home"></i> HOME
+        <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-home"></i> HOME
           <span class="sr-only">(current)</span>
         </a>
       </li>
       {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'watchlist' %}"><i class="fas fa-search"></i> Whatchlist
+        <li class="nav-item
+          {% if '/my_stuff/' in request.path %}
+            active
+          {% endif %}
+        ">
+          <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-search"></i> My Stocks
             <span class="sr-only">(current)</span>
           </a>
         </li>
