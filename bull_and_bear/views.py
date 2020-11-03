@@ -10,6 +10,7 @@ from django.views.generic import DetailView, ListView, TemplateView
 
 from .forms import SearchStockForm
 from .models import Stock_ID
+from .prediction import MakePrediction
 
 NEWS_API_KEY = os.environ['API_NEWS']
 FINNHUB = os.environ['FINNHUB']
@@ -66,13 +67,17 @@ def watchlist(request):
             
             return redirect('watchlist')
 
-        
     else:
         form = SearchStockForm()
 
     my_stocks = Stock_ID.objects.all()
 
-    
+    # ! right now it running a prediction on ALL stocks saved in db
+    for stock in my_stocks:
+        ticker = str(stock.stock_ticker)
+        predictor = MakePrediction(ticker)
+        stock.prediction = predictor.get_df_img()
+
     context = {
         'title': 'Watchlist',
         'form': form,
