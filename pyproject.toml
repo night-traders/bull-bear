@@ -14,6 +14,14 @@ whitenoise = "^5.2.0"
 gunicorn = "^20.0.4"
 psycopg2-binary = "^2.8.6"
 django-crispy-forms = "^1.9.2"
+pandas = "^1.1.4"
+finnhub-python = "^2.3.0"
+numpy = "^1.19.4"
+matplotlib = "^3.3.2"
+sklearn = "^0.0"
+mplfinance = "^0.12.7-alpha.0"
+tf-nightly = "2.5.0.dev20201029"
+tf-estimator-nightly = "^2.5.0-alpha.2020110301"
 
 [tool.poetry.dev-dependencies]
 
