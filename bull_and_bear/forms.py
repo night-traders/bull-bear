@@ -7,5 +7,7 @@ class SearchStockForm(forms.ModelForm):
 
     class Meta:
         model = Stock_ID
-        fields = ['stock_ticker', 'company_name']
+        fields = ['stock_ticker']
+
+
 

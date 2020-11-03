@@ -1,5 +1,6 @@
 import os
 
+import finnhub
 import requests
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
@@ -7,23 +8,19 @@ from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView, TemplateView
 
-import requests
-import os
-from django.core.paginator import Paginator
-
-NEWS_API_KEY = os.environ['API_NEWS']
 from .forms import SearchStockForm
 from .models import Stock_ID
 
+NEWS_API_KEY = os.environ['API_NEWS']
+FINNHUB = os.environ['FINNHUB']
 
 def home(request):
     response = requests.get(f"https://stocknewsapi.com/api/v1/category?section=general&items=50&token={NEWS_API_KEY}")
     news_data = response.json()
-    print('news data is', news_data)
     context = {
         'data': news_data['data']
     }
-    paginator = Paginator(context['data'], 25)
+    paginator = Paginator(context['data'], 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'bull_and_bear/home.html', {'page_obj': page_obj})
@@ -38,10 +35,6 @@ def about(request):
     return render(request, 'bull_and_bear/about.html', context)
 
 
-# class WatchlistView(ListView):
-#     template_name = 'bull_and_bear/watchlist.html'
-#     model = Stock_ID
-
 @login_required
 def watchlist(request):
 
@@ -52,15 +45,25 @@ def watchlist(request):
         if form.is_valid():
             user = request.user
             stock_ticker = request.POST.get('stock_ticker')
-            company_name = request.POST.get('company_name')
+            
+            response = requests.get(f"https://finnhub.io/api/v1/stock/profile2?symbol={stock_ticker}&token={FINNHUB}")
+            api_response = response.json()
+            print('api response', api_response)
+            
+            context = {
+                'ticker': api_response['ticker'],
+                'company_name': api_response['name'],
+            }
+            print('context is', context)
 
             new_stock = Stock_ID(
                 user=user,
-                stock_ticker=stock_ticker,
-                company_name=company_name,
+                stock_ticker=context['ticker'],
+                company_name=context['company_name'],
             )
             new_stock.save()
-                
+
+            
             return redirect('watchlist')
 
         
@@ -69,8 +72,7 @@ def watchlist(request):
 
     my_stocks = Stock_ID.objects.all()
 
-    print(my_stocks)
-
+    
     context = {
         'title': 'Watchlist',
         'form': form,
@@ -79,9 +81,4 @@ def watchlist(request):
 
     return render(request, 'bull_and_bear/watchlist.html', context)
 
-# def results(request):
 
-#     stocks = Stock_ID.objects.get.all()
-#     context = {
-#         'title',: ''
-#     }
