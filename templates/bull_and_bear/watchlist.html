@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+<h1 class="content text-center mb-4">Watchlist</h1>
+
+<h2>My Stocks</h2>
+{% comment %} <ul>
+  {% for stock in object_list %}
+    {% if request.user == stock.user %} 
+      <li>{{ stock.stock_ticker }}, {{ stock.company_name }} </li>
+    {% endif %}
+  {% endfor %}
+</ul> {% endcomment %}
+
+{% if stocks %}
+ <div class="text-center table-responsive">
+    <table id="results" class="table table-hover table-bordered white-background">
+      <thead>
+        <tr>
+          <th scope="col">Ticket</th>
+          <th scope="col">Company Name</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        {% for stock in stocks %}
+          {% if request.user == stock.user %}
+            <tr>
+              <th class="align-middle" scope="row">{{ stock.stock_ticker }}</th>
+              <td class="align-middle">{{ stock.company_name }}</td>
+              {% comment %} <td><a class="btn btn-outline-danger waves-effect p-2 " data-toggle="modal" data-target="#modalConfirmDelete" href="{% url 'delete_result' result.pk %}"><i class="fas fa-trash-alt fa-lg"></i></a></td> {% endcomment %}
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <h3 class="content">Your watchlist is empty</h3>
+  {% endif %}
+
+  <h1>Search for Stocks</h1>
+  <div class="border border-light p-3 white-background">
+    <form method="post" class="content text-center">
+      {% csrf_token %}
+      <fieldset>
+        {{ form|crispy }}
+      </fieldset>
+
+      <button id="search_submit" type="submit" class="btn btn-mdb-color">
+        Submit
+      </button>
+    </form>
+  </div>
+
+{% endblock content %}
+
