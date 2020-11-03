@@ -1,10 +1,16 @@
+import os
+
+import requests
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
+from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView, TemplateView
+
 import requests
 import os
 from django.core.paginator import Paginator
+
 NEWS_API_KEY = os.environ['API_NEWS']
 from .forms import SearchStockForm
 from .models import Stock_ID
@@ -13,6 +19,7 @@ from .models import Stock_ID
 def home(request):
     response = requests.get(f"https://stocknewsapi.com/api/v1/category?section=general&items=50&token={NEWS_API_KEY}")
     news_data = response.json()
+    print('news data is', news_data)
     context = {
         'data': news_data['data']
     }

@@ -12,17 +12,13 @@
           active
         {% endif %}
       ">
-        <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-home"></i> HOME
+        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home"></i> Bull & Bear
           <span class="sr-only">(current)</span>
         </a>
       </li>
       {% if user.is_authenticated %}
-        <li class="nav-item
-          {% if '/my_stuff/' in request.path %}
-            active
-          {% endif %}
-        ">
-          <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-search"></i> My Stocks
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'watchlist' %}"><i class="fas fa-search"></i> Watchlist
             <span class="sr-only">(current)</span>
           </a>
         </li>
