@@ -7,6 +7,10 @@ from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView, TemplateView
 
+import requests
+import os
+from django.core.paginator import Paginator
+
 NEWS_API_KEY = os.environ['API_NEWS']
 from .forms import SearchStockForm
 from .models import Stock_ID
