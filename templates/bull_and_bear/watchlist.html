@@ -7,13 +7,6 @@
 <h1 class="content text-center mb-4">Watchlist</h1>
 
 <h2>My Stocks</h2>
-{% comment %} <ul>
-  {% for stock in object_list %}
-    {% if request.user == stock.user %} 
-      <li>{{ stock.stock_ticker }}, {{ stock.company_name }} </li>
-    {% endif %}
-  {% endfor %}
-</ul> {% endcomment %}
 
 {% if stocks %}
  <div class="text-center table-responsive">
