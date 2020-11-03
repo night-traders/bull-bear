@@ -38,21 +38,21 @@ class MakePrediction:
         df = df[['Open', 'High', 'Low', 'Close', 'Volume']]
         return df
 
-    def stock_data_253(self, ticker):
+    def stock_data_253(self):
         '''
-        
+        Uses get_candlestick_data to get candlestick data for a given stock and returns the df with the most recent 253 rows
         '''
         current_time = int(time.time())
         prev_time = current_time - 46656000
-        df = self.get_candlestick_data(ticker, 'D', prev_time, current_time)
+        df = self.get_candlestick_data(self.ticker, 'D', prev_time, current_time)
         df = df.iloc[len(df)-253:]
         return df
 
-    def get_prediction(self, ticker):
+    def get_prediction(self):
         '''
         Uses other helper functions and returns a nested array of 7 days of stock predictions. Each day is an array with 5 price points
         '''
-        data = self.stock_data_253(ticker)
+        data = self.stock_data_253()
         open_data = data.iloc[:, 0:5].to_numpy()
         scaler = MinMaxScaler(feature_range = (0, 1))
         open_data = scaler.fit_transform(data)
@@ -63,12 +63,21 @@ class MakePrediction:
         stock_prediction = scaler.inverse_transform(stock_prediction.reshape(-1, stock_prediction.shape[-1])).reshape(stock_prediction.shape)
         return stock_prediction[0]
 
-    def get_prediction_df(self, ticker):
-        stock_prediction = self.get_prediction(ticker)
+    def get_prediction_df(self):
+        '''
+        Post processing the get_prediction results, putting them in a df with correct date index and column names, appends to 2 months of historical data, returns the appended df
+        '''
+        stock_prediction = self.get_prediction()
         prediction_df = [i for i in stock_prediction]
         date_index = []
         for i in range(7):
             date_index.append(datetime.fromtimestamp((i*86400) + int(time.time()))) 
         prediction_df = pd.DataFrame(data=prediction_df, index=date_index)
         prediction_df = prediction_df.rename(columns={0: 'Open', 1: 'High', 2: 'Low', 3: 'Close', 4: 'Volume'})
-        return prediction_df
+        combined_df = self.stock_data_253().tail(60).append(prediction_df)
+        return combined_df
+
+
+if __name__ == "__main__":
+    test = MakePrediction('AMZN')
+    print(test.get_prediction_df())
