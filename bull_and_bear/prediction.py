@@ -17,12 +17,18 @@ import mplfinance as mpf
 from tensorflow.keras.models import load_model
 from datetime import datetime
 import time
+import os
 
+import base64
+from io import BytesIO
+
+# FINNHUB_KEY = os.environ['FINNHUB']
 
 class MakePrediction:
 
     def __init__(self, ticker):
         self.ticker = ticker
+        # self.client = finnhub.Client(api_key=FINNHUB_KEY)
         self.client = finnhub.Client(api_key='bua9lb748v6q418gd0i0')
 
     def get_candlestick_data(self, ticker, timeframe, start, end):
@@ -58,7 +64,7 @@ class MakePrediction:
         open_data = scaler.fit_transform(data)
         x_test = [open_data[0:253]]
         x_test = np.asarray(x_test)
-        model = load_model('minimize_size_weights.hdf5')
+        model = load_model('bull_and_bear/minimize_size_weights.hdf5')
         stock_prediction = model.predict(x_test)
         stock_prediction = scaler.inverse_transform(stock_prediction.reshape(-1, stock_prediction.shape[-1])).reshape(stock_prediction.shape)
         return stock_prediction[0]
@@ -78,6 +84,18 @@ class MakePrediction:
         return combined_df
 
 
+    def get_df_img(self):
+        df = self.get_prediction_df()
+        fig, axlist = mpf.plot(df, type='candle', figratio=(8, 5), returnfig=True, style='yahoo')
+
+        tmpfile = BytesIO()
+        fig.savefig(tmpfile, format='png')
+        encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+
+        html = '<img src=\'data:image/png;base64,{}\'>'.format(encoded)
+
+        return encoded
+
+
 if __name__ == "__main__":
-    test = MakePrediction('AMZN')
-    print(test.get_prediction_df())
+    pass

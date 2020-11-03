@@ -11,11 +11,12 @@ NEWS_API_KEY = os.environ['API_NEWS']
 from .forms import SearchStockForm
 from .models import Stock_ID
 
+from .prediction import MakePrediction
+
 
 def home(request):
     response = requests.get(f"https://stocknewsapi.com/api/v1/category?section=general&items=50&token={NEWS_API_KEY}")
     news_data = response.json()
-    print('news data is', news_data)
     context = {
         'data': news_data['data']
     }
@@ -59,13 +60,16 @@ def watchlist(request):
                 
             return redirect('watchlist')
 
-        
     else:
         form = SearchStockForm()
 
     my_stocks = Stock_ID.objects.all()
 
-    print(my_stocks)
+    # ! right now it running a prediction on ALL stocks saved in db
+    for stock in my_stocks:
+        ticker = str(stock.stock_ticker)
+        predictor = MakePrediction(ticker)
+        stock.prediction = predictor.get_df_img()
 
     context = {
         'title': 'Watchlist',

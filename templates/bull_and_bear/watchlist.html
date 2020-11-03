@@ -30,6 +30,15 @@
       </tbody>
     </table>
   </div>
+
+  <div>
+    {% for stock in stocks %}
+        {% if request.user == stock.user %}
+            <img src='data:image/png;base64,{{ stock.prediction }}'>
+        {% endif %}
+    {% endfor %}
+  </div>
+
   {% else %}
     <h3 class="content">Your watchlist is empty</h3>
   {% endif %}
