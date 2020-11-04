@@ -1,5 +1,5 @@
 <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color bg-primary darken-1">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color bg-info darken-1">
   <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-plane-departure"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,13 +12,13 @@
           active
         {% endif %}
       ">
-        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home"></i> Bull & Bear
+        <a class="text-white font-weight-bold h2 mr-3 text-decoration-none" href="{% url 'home' %}"><i class="fas fa-home"></i> Bull & Bear
           <span class="sr-only">(current)</span>
         </a>
       </li>
       {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'watchlist' %}"><i class="fas fa-search"></i> Watchlist
+          <a class="nav-link text-white p-2" href="{% url 'watchlist' %}"><i class="fas fa-search"></i> Watchlist
             <span class="sr-only">(current)</span>
           </a>
         </li>
@@ -31,7 +31,7 @@
           active
         {% endif %}
       ">
-        <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-info"></i> About Us
+        <a class="nav-link text-white p-2" href="{% url 'about' %}"><i class="fas fa-info"></i> About Us
           <span class="sr-only">(current)</span>
         </a>
       </li>
@@ -39,18 +39,18 @@
     <ul class="navbar-nav ml-auto">
       {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile' %}">
+          <a class="nav-link text-white p-2" href="{% url 'profile' %}">
             <i class="far fa-user"></i> Profile
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">
+          <a class="nav-link text-white p-2" href="{% url 'logout' %}">
             <i class="fas fa-sign-out-alt"></i> Logout
           </a>
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">
+          <a class="nav-link text-white p-2" href="{% url 'login' %}">
             <i class="fas fa-sign-in-alt"></i> Login
           </a>
         </li>

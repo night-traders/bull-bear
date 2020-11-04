@@ -4,14 +4,14 @@
 
 {% block content %}
 <div class="full-heigh">
-  <h1 class="content text-center mb-4">{{ user }}'s Profile</h1>
+  <h1 class="content text-center mb-4 text-secondary">{{ user }}'s Profile</h1>
 
   <div class="border border-light p-3 white-background">
-    <form method="post" class="content text-center">
+    <form method="post" class="text-center border border-light p-5">
       {% csrf_token %}
-      <fieldset>
+      <fieldset class="text-secondary">
         {{ form|crispy }}
-        <button type="submit" class="btn btn-mdb-color">
+        <button type="submit" class="btn btn-primary pl-4 pr-4">
           Update
         </button>  
       </fieldset>
