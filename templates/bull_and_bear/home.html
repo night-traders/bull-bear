@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+      {% include 'partials/_pagination.html' %}
+    {% else %}
+    <p class="welcome-text">
+        If you are seeing this it is because you are not logged in. <br>
+
+      <a href="{% url 'login' %}">login here</a> or <a href="{% url 'register' %}">register here</a>.
+    </p>
+    {% endif %}
+{% endblock content %}
+
