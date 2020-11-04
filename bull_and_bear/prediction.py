@@ -100,5 +100,4 @@ class MakePrediction:
 
 
 if __name__ == "__main__":
-    test = MakePrediction('AMZN')
-    print(test.get_df_img())
+    pass

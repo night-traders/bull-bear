@@ -13,7 +13,7 @@ class Stock_ID(models.Model):
 
 class Saved_Predictions(models.Model):
     stock_ticker = models.CharField(max_length=5)
-    date_predicted = models.DateField(auto_now_add=True)
+    date_predicted = models.CharField(max_length=10)
     img = models.TextField()
 
     def __str__(self):

@@ -1,5 +1,5 @@
 import os
-
+from datetime import date
 import finnhub
 import requests
 from django.contrib.auth.decorators import login_required
@@ -9,7 +9,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView, TemplateView
 
 from .forms import SearchStockForm
-from .models import Stock_ID
+from .models import Stock_ID, Saved_Predictions
 from .prediction import MakePrediction
 
 NEWS_API_KEY = os.environ['API_NEWS']
@@ -49,14 +49,14 @@ def watchlist(request):
             
             response = requests.get(f"https://finnhub.io/api/v1/stock/profile2?symbol={stock_ticker}&token={FINNHUB}")
             api_response = response.json()
-            print('api response', api_response)
+
             
             context = {
                 'ticker': api_response['ticker'],
                 'company_name': api_response['name'],
             }
-            print('context is', context)
 
+            # where new stocks added to DB
             new_stock = Stock_ID(
                 user=user,
                 stock_ticker=context['ticker'],
@@ -70,13 +70,27 @@ def watchlist(request):
     else:
         form = SearchStockForm()
 
-    my_stocks = Stock_ID.objects.all()
+    my_stocks = Stock_ID.objects.all().filter(user=request.user)
 
-    # ! right now it running a prediction on ALL stocks saved in db
-    for stock in my_stocks:
-        ticker = str(stock.stock_ticker)
-        predictor = MakePrediction(ticker)
-        stock.prediction = predictor.get_df_img()
+    if my_stocks:
+        for stock in my_stocks:
+            prediction = Saved_Predictions.objects.all().filter(stock_ticker=stock.stock_ticker)
+
+            if prediction[0].date_predicted == date.today():
+                stock.prediction = prediction[0].img
+
+            else:
+                Saved_Predictions.objects.filter(stock_ticker=stock.stock_ticker).delete()
+                ticker = str(stock.stock_ticker)
+                predictor = MakePrediction(ticker)
+                df = predictor.get_df_img()
+                stock.prediction = df
+                new_prediction = Saved_Predictions(
+                    stock_ticker = ticker,
+                    date_predicted = date.today(),
+                    img = df
+                )
+                new_prediction.save()
 
     context = {
         'title': 'Watchlist',
