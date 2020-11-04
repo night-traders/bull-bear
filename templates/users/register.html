@@ -3,6 +3,11 @@
 
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+      <div role="alert" id="message" class="alert alert-success {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+    {% endfor %}
+  {% endif %}
   <h1 class="content text-center mb-4 text-secondary">Register</h1>
 
   <div class="border border-light p-3 white-background">

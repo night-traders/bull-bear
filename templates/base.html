@@ -26,11 +26,6 @@
   {% include 'partials/_navbar.html' %}
   
   <main role="main" style="margin-bottom:60px;"class="container mt-2 full-height">
-  {% if messages %}
-    {% for message in messages %}
-      <div role="alert" id="message" class="alert alert-danger {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
-    {% endfor %}
-  {% endif %}
   <!-- Page Content -->
     {% block content %} {% endblock content %}
   </main>
@@ -45,7 +40,7 @@
   if(message_ele){
   setTimeout(function(){ 
  message_ele.style.display = "none"; 
-}, 2000)};</script>
+}, 3000)};</script>
   <!-- Custom JS Scripts -->
   {% block script %}{% endblock script %}
 </body>

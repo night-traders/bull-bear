@@ -4,9 +4,14 @@
 {% load static %}
 
 {% block content %}
-<h1 class="content text-center mb-4">Watchlist</h1>
+{% if messages %}
+    {% for message in messages %}
+      <div role="alert" id="message" class="alert alert-danger {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+    {% endfor %}
+{% endif %}
+<h1 class="content text-center mb-4 text-secondary">Watchlist</h1>
 
-<h2>My Stocks</h2>
+<h2 class="text-secondary">My Stocks</h2>
 
 {% if stocks %}
  <div class="text-center table-responsive">
@@ -40,14 +45,14 @@
   </div>
 
   {% else %}
-    <h3 class="content">Your watchlist is empty</h3>
+    <h3 class="content text-danger">Your watchlist is empty</h3>
   {% endif %}
 
-  <h1>Add Stocks to my Watchlist</h1>
+  <h1 class="text-info">Add Stocks to my Watchlist</h1>
   <div class="border border-light p-3 white-background">
     <form method="post" class="content text-center">
       {% csrf_token %}
-      <fieldset>
+      <fieldset class="text-primary">
         {{ form|crispy }}
       </fieldset>
 
