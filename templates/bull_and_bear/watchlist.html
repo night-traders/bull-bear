@@ -23,7 +23,9 @@
             <tr>
               <th class="align-middle" scope="row">{{ stock.stock_ticker }}</th>
               <td class="align-middle">{{ stock.company_name }}</td>
-              {% comment %} <td><a class="btn btn-outline-danger waves-effect p-2 " data-toggle="modal" data-target="#modalConfirmDelete" href="{% url 'delete_result' result.pk %}"><i class="fas fa-trash-alt fa-lg"></i></a></td> {% endcomment %}
+              {% comment %} <td><a class="btn btn-outline-primary waves-effect p-2" href="{% url 'stock_details' stock.pk %}"><i class="fas fa-info-circle fa-lg"></i></a></td> {% endcomment %}
+              {% comment %} <td><a class="btn btn-outline-danger waves-effect p-2 " data-toggle="modal" data-target="#modalConfirmDelete" href="{% url 'stock_details' stock.pk %}"><i class="fas fa-trash-alt fa-lg"></i></a></td> {% endcomment %}
+              <td><a class="btn btn-outline-danger waves-effect p-2 " data-toggle="modal" data-target="#modalConfirmDelete" href="{% url 'delete_stock' stock.pk %}"><i class="fas fa-trash-alt fa-lg"></i></a></td>
             </tr>
           {% endif %}
         {% endfor %}
@@ -61,5 +63,36 @@
     <p>{context}</p>
   {% endif %}
 
+<!--Modal: modalConfirmDelete-->
+<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Delete Stock</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <p>Are you sure you want to delete this stock?</p>
+        <i class="fas fa-times fa-4x animated rotateIn"></i>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a id="link" href="" class="btn btn-outline-danger">Yes</a>
+        <a type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalConfirmDelete-->
+
 {% endblock content %}
 
+{% block script %}
+  <script type="text/javascript" src="{% static 'js/delete_stock.js' %}"></script>
+{% endblock script %}
