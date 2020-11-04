@@ -1,5 +1,5 @@
 import os
-
+from django.contrib import messages 
 import finnhub
 import requests
 from django.contrib.auth.decorators import login_required
@@ -12,7 +12,7 @@ from .forms import SearchStockForm
 from .models import Stock_ID
 from .prediction import MakePrediction
 
-NEWS_API_KEY = os.environ['API_NEWS']
+NEWS_API_KEY = os.environ['NEWS_API_KEY']
 FINNHUB = os.environ['FINNHUB']
 
 def home(request):
@@ -50,19 +50,23 @@ def watchlist(request):
             response = requests.get(f"https://finnhub.io/api/v1/stock/profile2?symbol={stock_ticker}&token={FINNHUB}")
             api_response = response.json()
             print('api response', api_response)
-            
-            context = {
-                'ticker': api_response['ticker'],
-                'company_name': api_response['name'],
-            }
-            print('context is', context)
+            if not api_response or api_response['name']=='' or api_response['ticker']=='':
+                messages.error(request, "Error, try a valid input")
+            elif api_response['name'] in Stock_ID.objects.all():
+                essages.error(request, f"{api_response['name']} already in your watchlist!")
+            else:
+                context = {
+                    'ticker': api_response['ticker'],
+                    'company_name': api_response['name'],
+                }
+                print('context is', context)
 
-            new_stock = Stock_ID(
-                user=user,
-                stock_ticker=context['ticker'],
-                company_name=context['company_name'],
-            )
-            new_stock.save()
+                new_stock = Stock_ID(
+                    user=user,
+                    stock_ticker=context['ticker'],
+                    company_name=context['company_name'],
+                )
+                new_stock.save()
 
             
             return redirect('watchlist')
