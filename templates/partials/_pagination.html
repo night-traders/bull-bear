@@ -6,7 +6,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="https://image.freepik.com/free-photo/stock-market-forex-trading-graph-graphic-concept-suitable-financial-investment-economic-trends-business-idea-all-art-work-design-abstract-finance-background_73426-181.jpg" alt="Market"></img>
+            <img class="d-block rounded w-100" src="https://image.freepik.com/free-photo/stock-market-forex-trading-graph-graphic-concept-suitable-financial-investment-economic-trends-business-idea-all-art-work-design-abstract-finance-background_73426-181.jpg" alt="Market"></img>
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1>Nike Inc (NKE)</h1>
@@ -46,14 +46,14 @@
     </a>
 </div>
 <div class="container marketing">
-    <h1 class="text-center">Top news</h1>
+    <h1 class="text-center text-secondary">Top news</h1>
     <hr class="mt-3 mb-3"></hr>
     <hr class="featurette-divider"></hr>
     {% for item in page_obj%}
     <div key={item.title}>
         <div class="row featurette">
             <div class="col-md-7">
-                <h3 >{{item.title}}</h3>
+                <h3 class="text-info" >{{item.title}}</h3>
                 <p><span class="text-white bg-secondary p-1">{{item.source_name}}</span> <span class="text-muted">{{item.date}}</span></p>
                 <p class="lead">{{item.text}}</p>
                 {% if item.sentiment == 'Positive' %}
