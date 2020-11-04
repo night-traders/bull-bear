@@ -1,5 +1,6 @@
 import os
 from datetime import date
+
 import finnhub
 import requests
 from django.contrib.auth.decorators import login_required
@@ -9,7 +10,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView, TemplateView
 
 from .forms import SearchStockForm
-from .models import Stock_ID, Saved_Predictions
+from .models import Saved_Predictions, Stock_ID
 from .prediction import MakePrediction
 
 NEWS_API_KEY = os.environ['API_NEWS']
@@ -114,3 +115,12 @@ def watchlist(request):
     return render(request, 'bull_and_bear/watchlist.html', context)
 
 
+@login_required
+def delete_stock(request, stock_id):
+    print('IM HERE', stock_id)
+    stock = Stock_ID.objects.get(pk=stock_id)
+    print('HERE AGAIN', stock)
+
+    stock.delete()
+
+    return redirect('watchlist')
