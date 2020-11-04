@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 import finnhub
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plot
 from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
@@ -85,6 +86,7 @@ class MakePrediction:
 
 
     def get_df_img(self):
+        matplotlib.use('agg')
         df = self.get_prediction_df()
         fig, axlist = mpf.plot(df, type='candle', figratio=(8, 5), returnfig=True, style='yahoo')
 
