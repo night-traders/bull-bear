@@ -51,11 +51,10 @@ def watchlist(request):
             
             response = requests.get(f"https://finnhub.io/api/v1/stock/profile2?symbol={stock_ticker}&token={FINNHUB}")
             api_response = response.json()
-
             if not api_response or api_response['name']=='' or api_response['ticker']=='':
                 messages.error(request, "Error, try a valid input")
-            elif api_response['name'] in Stock_ID.objects.all():
-                essages.error(request, f"{api_response['name']} already in your watchlist!")
+            elif f"{api_response['ticker']}, {api_response['name']}" in [str(el) for el in Stock_ID.objects.all()]:
+                messages.error(request, f"{api_response['name']} already in your watchlist!")
             else:
                 context = {
                     'ticker': api_response['ticker'],
