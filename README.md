@@ -16,7 +16,7 @@ User would be able to add stocks to a watch list, that way the user would only r
 ## Wire Frames
 ![home, not logged in](./assets/home_logout.png)
 ![home, logged in](./assets/home_login.png)
-![login](./assets/login.png)
+![about](./assets/about.png)
 ![login](./assets/login.png)
 ![logout](./assets/logout.png)
 ![register](./assets/register.png)
@@ -24,13 +24,13 @@ User would be able to add stocks to a watch list, that way the user would only r
 
 
 ## User Stories
-Coming soon...
+User Story text can be viewed [here](user_stories.md)
 
 ## Software Requirements
-Coming soon...
+https://github.com/night-traders/bull-bear/blob/main/requirements.md
 
 ## Domain Modeling
-Coming soon...
+https://docs.google.com/drawings/d/1xuvEmNHJiQMPj4maDiDIR4pzicX3fjAEIxR8bpRGkIY/edit
 
 ## Database
 This app will be using PostgreSQL database.
