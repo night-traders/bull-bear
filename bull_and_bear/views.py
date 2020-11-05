@@ -104,11 +104,13 @@ def watchlist(request):
                     )
                     new_prediction.save()
 
+    temp = date.today()
 
     context = {
         'title': 'Watchlist',
         'form': form,
         'stocks': my_stocks,
+        'today': temp,
     }
 
     return render(request, 'bull_and_bear/watchlist.html', context)
