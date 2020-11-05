@@ -6,12 +6,12 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="https://image.freepik.com/free-photo/stock-market-forex-trading-graph-graphic-concept-suitable-financial-investment-economic-trends-business-idea-all-art-work-design-abstract-finance-background_73426-181.jpg" alt="Market"></img>
+            <img class="d-block rounded w-100" src="https://image.freepik.com/free-photo/stock-market-forex-trading-graph-graphic-concept-suitable-financial-investment-economic-trends-business-idea-all-art-work-design-abstract-finance-background_73426-181.jpg" alt="Market"></img>
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <h1>Example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-info" href="/signup" role="button">Sign up today</a></p>
+                    <h1>Nike Inc (NKE)</h1>
+                    <p>NIKE, Inc. is an American multinational corporation that is engaged in the design, development, manufacturing, and worldwide marketing and sales of footwear, apparel, equipment, accessories, and services. The company is headquartered near Beaverton, Oregon, in the Portland metropolitan area.</p>
+                    <p><a class="btn btn-lg btn-primary" href="/users/register/" role="button">Sign up today</a></p>
                 </div>
             </div>
         </div>
@@ -19,9 +19,9 @@
         <img class="d-block w-100" src="https://specials-images.forbesimg.com/imageserve/5f492b71ee4055766258e438/960x0.jpg?fit=scale" alt="Market"></img>
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-info" href="/" role="button">Learn more</a></p>
+                    <h1>Albertsons (ACI)</h1>
+                    <p>Albertsons Companies, Inc. is an American grocery company founded and headquartered in Boise, Idaho. With 2,252 stores as of the first quarter of fiscal year 2021 and 270,000 employees as of fiscal year 2020, the company is the second-largest supermarket chain in North America after Kroger, which has 2,750 stores.</p>
+                    <p><a class="btn btn-lg btn-primary" href="/users/register/" role="button">Sign up today</a></p>
                 </div>
             </div>
         </div>
@@ -29,9 +29,9 @@
         <img class="d-block w-100" src="https://www.tradestation.com/insights/wp-content/uploads/sites/2/2020/06/digital_bull_AdobeStock_217094122.jpeg" alt="Market"></img>
             <div class="container">
                 <div class="carousel-caption text-right">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-info" href="/" role="button">Browse</a></p>
+                    <h1>FedEx (FDX)</h1>
+                    <p>FedEx Corporation is an American multinational delivery services company headquartered in Memphis, Tennessee. The name "FedEx" is a syllabic abbreviation of the name of the company's original air division, Federal Express, which was used from 1973 until 2000.</p>
+                    <p><a class="btn btn-lg btn-primary" href="/users/register/" role="button">Sign up today</a></p>
                 </div>
             </div>
         </div>
@@ -46,14 +46,15 @@
     </a>
 </div>
 <div class="container marketing">
-    <h1 class="text-center">Top news</h1>
+    <h1 class="text-center text-secondary">Top news</h1>
     <hr class="mt-3 mb-3"></hr>
     <hr class="featurette-divider"></hr>
     {% for item in page_obj%}
     <div key={item.title}>
         <div class="row featurette">
             <div class="col-md-7">
-                <h3 >{{item.title}}</h3>
+                <!-- <a style="text-decoration: none;" href={{item.news_url}}><h3 class="text-info" >{{item.title}}</h3></a> -->
+                <h3 class="text-info" ><a class="text-info" style="text-decoration: none;" target="_blank" rel="noopener noreferrer" href={{item.news_url}}>{{item.title}}</a></h3>
                 <p><span class="text-white bg-secondary p-1">{{item.source_name}}</span> <span class="text-muted">{{item.date}}</span></p>
                 <p class="lead">{{item.text}}</p>
                 {% if item.sentiment == 'Positive' %}
@@ -61,9 +62,9 @@
                 {% elif item.sentiment == 'Negative'%}
                     <p class='text-danger'><i>{{item.sentiment}}</i></p>
                 {% else %}
-                 <p class='text-secondary'><i>{{item.sentiment}}</i></p>
+                <p class='text-secondary'><i>{{item.sentiment}}</i></p>
                 {% endif %}
-                <p><a class="btn btn btn-outline-info" href={{item.news_url}} role="button">View details &raquo;</a></p>
+                <p><a class="btn btn btn-outline-info" target="_blank" rel="noopener noreferrer" href={{item.news_url}} role="button">View details &raquo;</a></p>
             </div>
             <div class="col-md-5">
             <img class="d-block w-100" src={{item.image_url}} alt="First slide" title={{item.source_name}}></img>

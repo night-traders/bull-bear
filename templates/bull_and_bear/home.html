@@ -8,14 +8,7 @@
 
 
 {% block content %}
-    {% if user.is_authenticated %}
-      {% include 'partials/_pagination.html' %}
-    {% else %}
-    <p class="welcome-text">
-        If you are seeing this it is because you are not logged in. <br>
-
-      <a href="{% url 'login' %}">login here</a> or <a href="{% url 'register' %}">register here</a>.
-    </p>
-    {% endif %}
+    {% include 'partials/_pagination.html' %}
+   
 {% endblock content %}
 
