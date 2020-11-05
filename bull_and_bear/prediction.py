@@ -81,15 +81,15 @@ class MakePrediction:
             date_index.append(datetime.fromtimestamp((i*86400) + int(time.time()))) 
         prediction_df = pd.DataFrame(data=prediction_df, index=date_index)
         prediction_df = prediction_df.rename(columns={0: 'Open', 1: 'High', 2: 'Low', 3: 'Close', 4: 'Volume'})
-        combined_df = self.stock_data_253().tail(60).append(prediction_df)
+        combined_df = self.stock_data_253().tail(30).append(prediction_df)
         return combined_df
 
 
     def get_df_img(self):
         matplotlib.use('agg')
         df = self.get_prediction_df()
-        fig, axlist = mpf.plot(df, type='candle', figratio=(8, 5), returnfig=True, style='yahoo')
-
+        s = mpf.make_mpf_style(base_mpf_style='yahoo', gridstyle=' ')
+        fig, axlist = mpf.plot(df, type='candle', figratio=(8, 5), returnfig=True, style=s, volume=True)
         tmpfile = BytesIO()
         fig.savefig(tmpfile, format='png')
         encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
