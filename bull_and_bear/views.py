@@ -119,10 +119,6 @@ def watchlist(request):
 
 @login_required
 def delete_stock(request, stock_id):
-    print('IM HERE', stock_id)
     stock = Stock_ID.objects.get(pk=stock_id)
-    print('HERE AGAIN', stock)
-
     stock.delete()
-
     return redirect('watchlist')
