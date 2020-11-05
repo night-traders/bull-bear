@@ -55,6 +55,5 @@ threadpoolctl==2.1.0; python_version >= "3.5"
 typing-extensions==3.7.4.3
 urllib3==1.25.11; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version < "4"
 werkzeug==1.0.1; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0"
-wheel==0.35.1; python_version >= "3" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3"
 whitenoise==5.2.0; python_version >= "3.5" and python_version < "4"
 wrapt==1.12.1
