@@ -93,7 +93,7 @@ def watchlist(request):
                 new_prediction.save()
 
             else:
-                if prediction[0].date_predicted == str(date.today()):
+                if str(prediction[0].date_predicted) == str(date.today()):
                     stock.prediction = prediction[0].img
                 else:
                     Saved_Predictions.objects.filter(stock_ticker=stock.stock_ticker).delete()
