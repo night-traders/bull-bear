@@ -48,12 +48,12 @@ def watchlist(request):
         if form.is_valid():
             user = request.user
             stock_ticker = request.POST.get('stock_ticker')
-            
+            user_stocks = Stock_ID.objects.all().filter(user=request.user)
             response = requests.get(f"https://finnhub.io/api/v1/stock/profile2?symbol={stock_ticker}&token={FINNHUB}")
             api_response = response.json()
             if not api_response or api_response['name']=='' or api_response['ticker']=='':
                 messages.error(request, "Error, try a valid input")
-            elif f"{api_response['ticker']}, {api_response['name']}" in [str(el) for el in Stock_ID.objects.all()]:
+            elif f"{api_response['ticker']}, {api_response['name']}" in [str(el) for el in user_stocks]:
                 messages.error(request, f"{api_response['name']} already in your watchlist!")
             else:
                 context = {
