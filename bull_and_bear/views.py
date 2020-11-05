@@ -76,6 +76,8 @@ def watchlist(request):
 
     my_stocks = Stock_ID.objects.all().filter(user=request.user)
 
+    debug = ''
+
     if my_stocks:
         for stock in my_stocks:
             prediction = Saved_Predictions.objects.all().filter(stock_ticker=stock.stock_ticker)
@@ -96,6 +98,8 @@ def watchlist(request):
                 if prediction[0].date_predicted == date.today():
                     stock.prediction = prediction[0].img
                 else:
+                    # send debug information
+                    debug = debug + str(date.today()) + ' <- date today. date on db -> ' + str(prediction[0].date_predicted)
                     Saved_Predictions.objects.filter(stock_ticker=stock.stock_ticker).delete()
                     ticker = str(stock.stock_ticker)
                     predictor = MakePrediction(ticker)
@@ -113,6 +117,7 @@ def watchlist(request):
         'title': 'Watchlist',
         'form': form,
         'stocks': my_stocks,
+        'debug': debug,
     }
 
     return render(request, 'bull_and_bear/watchlist.html', context)
