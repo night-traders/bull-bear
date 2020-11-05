@@ -26,12 +26,6 @@
 <h2 class="text-secondary">My Stocks</h2>
 
 {% if stocks %}
- <div>
-     The debug information is:
- </div>
- <div>
-     {{ debug }}
- </div>
  <div class="text-center table-responsive">
     <table id="results" class="table table-hover table-bordered white-background">
       <thead>
@@ -46,6 +40,7 @@
             <tr>
               <th class="align-middle" scope="row">{{ stock.stock_ticker }}</th>
               <td class="align-middle">{{ stock.company_name }}</td>
+              {% comment %} <td><a class="btn btn-outline-danger waves-effect p-2 " data-toggle="modal" data-target="#modalConfirmDelete" href="{% url 'delete_result' result.pk %}"><i class="fas fa-trash-alt fa-lg"></i></a></td> {% endcomment %}
               {% comment %} <td><a class="btn btn-outline-primary waves-effect p-2" href="{% url 'stock_details' stock.pk %}"><i class="fas fa-info-circle fa-lg"></i></a></td> {% endcomment %}
               {% comment %} <td><a class="btn btn-outline-danger waves-effect p-2 " data-toggle="modal" data-target="#modalConfirmDelete" href="{% url 'stock_details' stock.pk %}"><i class="fas fa-trash-alt fa-lg"></i></a></td> {% endcomment %}
               <td><a class="btn btn-outline-danger waves-effect p-2 " data-toggle="modal" data-target="#modalConfirmDelete" href="{% url 'delete_stock' stock.pk %}"><i class="fas fa-trash-alt fa-lg"></i></a></td>
