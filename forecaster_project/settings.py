@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import django_heroku
 from pathlib import Path
 
 import environ
@@ -155,3 +156,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # login option settings
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())

@@ -17,6 +17,7 @@ from .prediction import MakePrediction
 NEWS_API_KEY = os.environ['NEWS_API_KEY']
 FINNHUB = os.environ['FINNHUB']
 
+
 def home(request):
     response = requests.get(f"https://stocknewsapi.com/api/v1/category?section=general&items=50&token={NEWS_API_KEY}")
     news_data = response.json()
