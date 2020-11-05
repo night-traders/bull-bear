@@ -158,4 +158,3 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
