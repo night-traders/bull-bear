@@ -19,24 +19,28 @@ from tensorflow.keras.models import load_model
 from datetime import datetime
 import time
 import os
-
 import base64
 from io import BytesIO
+import requests
 
-# FINNHUB_KEY = os.environ['FINNHUB']
+
+FINNHUB = os.environ['FINNHUB']
 
 class MakePrediction:
 
     def __init__(self, ticker):
         self.ticker = ticker
-        # self.client = finnhub.Client(api_key=FINNHUB_KEY)
         self.client = finnhub.Client(api_key='bua9lb748v6q418gd0i0')
+        self.company_name = None
 
     def get_candlestick_data(self, ticker, timeframe, start, end):
         '''
         Makes call to finnhub api and returns the processed response as a dataframe
         '''
         data = self.client.stock_candles(ticker, timeframe, start, end)
+        name_response = requests.get(f"https://finnhub.io/api/v1/stock/profile2?symbol={ticker}&token={FINNHUB}")
+        name_api_response = name_response.json()
+        self.company_name = name_api_response['name']
         del data['s']
         df = pd.DataFrame.from_dict(data)
         df['t'] = df['t'].apply(lambda x: datetime.fromtimestamp(x))
@@ -86,16 +90,16 @@ class MakePrediction:
 
 
     def get_df_img(self):
+        '''
+        Returns base64 version of plot image of self.get_prediction_df()
+        '''
         matplotlib.use('agg')
         df = self.get_prediction_df()
         s = mpf.make_mpf_style(base_mpf_style='yahoo', gridstyle=' ')
-        fig, axlist = mpf.plot(df, type='candle', figratio=(8, 5), returnfig=True, style=s, volume=True)
+        fig, axlist = mpf.plot(df, type='candle', figratio=(8, 5), returnfig=True, style=s, volume=True, title=self.company_name)
         tmpfile = BytesIO()
         fig.savefig(tmpfile, format='png')
         encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
-
-        html = '<img src=\'data:image/png;base64,{}\'>'.format(encoded)
-
         return encoded
 
 
