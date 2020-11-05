@@ -21,6 +21,7 @@ sklearn = "^0.0"
 mplfinance = "^0.12.7-alpha.0"
 tf-estimator-nightly = "^2.5.0-alpha.2020110301"
 tf-nightly = "2.4.0.dev20200903"
+django-heroku = "^0.3.1"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.6.0"
