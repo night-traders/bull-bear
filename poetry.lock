@@ -1,32 +1,32 @@
 [[package]]
-category = "main"
-description = "Abseil Python Common Libraries, see https://github.com/abseil/abseil-py."
 name = "absl-py"
+version = "0.11.0"
+description = "Abseil Python Common Libraries, see https://github.com/abseil/abseil-py."
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.11.0"
 
 [package.dependencies]
 six = "*"
 
 [[package]]
-category = "main"
-description = "ASGI specs, helper code, and adapters"
 name = "asgiref"
+version = "3.2.10"
+description = "ASGI specs, helper code, and adapters"
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "3.2.10"
 
 [package.extras]
 tests = ["pytest", "pytest-asyncio"]
 
 [[package]]
-category = "dev"
-description = "An abstract syntax tree for Python with inference support."
 name = "astroid"
+version = "2.4.2"
+description = "An abstract syntax tree for Python with inference support."
+category = "dev"
 optional = false
 python-versions = ">=3.5"
-version = "2.4.2"
 
 [package.dependencies]
 lazy-object-proxy = ">=1.4.0,<1.5.0"
@@ -34,76 +34,66 @@ six = ">=1.12,<2.0"
 wrapt = ">=1.11,<2.0"
 
 [[package]]
-category = "main"
-description = "An AST unparser for Python"
 name = "astunparse"
+version = "1.6.3"
+description = "An AST unparser for Python"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.6.3"
 
 [package.dependencies]
 six = ">=1.6.1,<2.0"
-wheel = ">=0.23.0,<1.0"
 
 [[package]]
-category = "main"
-description = "Extensible memoizing collections and decorators"
 name = "cachetools"
+version = "4.1.1"
+description = "Extensible memoizing collections and decorators"
+category = "main"
 optional = false
 python-versions = "~=3.5"
-version = "4.1.1"
 
 [[package]]
-category = "main"
-description = "Python package for providing Mozilla's CA Bundle."
 name = "certifi"
-optional = false
-python-versions = "*"
 version = "2020.6.20"
-
-[[package]]
+description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
-description = "Universal encoding detector for Python 2 and 3"
-name = "chardet"
 optional = false
 python-versions = "*"
-version = "3.0.4"
 
 [[package]]
-category = "dev"
-description = "Cross-platform colored terminal text."
-marker = "sys_platform == \"win32\""
+name = "chardet"
+version = "3.0.4"
+description = "Universal encoding detector for Python 2 and 3"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "colorama"
+version = "0.4.4"
+description = "Cross-platform colored terminal text."
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-version = "0.4.4"
 
 [[package]]
-category = "main"
-description = "Composable style cycles"
 name = "cycler"
+version = "0.10.0"
+description = "Composable style cycles"
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.10.0"
 
 [package.dependencies]
 six = "*"
 
 [[package]]
-category = "main"
-description = "Use Database URLs in your Django Application."
-name = "dj-database-url"
-optional = false
-python-versions = "*"
-version = "0.5.0"
-
-[[package]]
-category = "main"
-description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
 name = "django"
+version = "3.1.2"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "3.1.2"
 
 [package.dependencies]
 asgiref = ">=3.2.10,<3.3.0"
@@ -115,112 +105,94 @@ argon2 = ["argon2-cffi (>=16.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-category = "main"
-description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
 name = "django-cors-headers"
+version = "3.5.0"
+description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "3.5.0"
 
 [package.dependencies]
 Django = ">=2.2"
 
 [[package]]
-category = "main"
-description = "Best way to have Django DRY forms"
 name = "django-crispy-forms"
-optional = false
-python-versions = ">=3.5"
 version = "1.9.2"
-
-[[package]]
+description = "Best way to have Django DRY forms"
 category = "main"
-description = "Django-environ allows you to utilize 12factor inspired environment variables to configure your Django application."
-name = "django-environ"
-optional = false
-python-versions = "*"
-version = "0.4.5"
-
-[[package]]
-category = "main"
-description = "This is a Django library for Heroku apps."
-name = "django-heroku"
-optional = false
-python-versions = "*"
-version = "0.3.1"
-
-[package.dependencies]
-dj-database-url = ">=0.5.0"
-django = "*"
-psycopg2 = "*"
-whitenoise = "*"
-
-[[package]]
-category = "main"
-description = "Web APIs for Django, made easy."
-name = "djangorestframework"
 optional = false
 python-versions = ">=3.5"
+
+[[package]]
+name = "django-environ"
+version = "0.4.5"
+description = "Django-environ allows you to utilize 12factor inspired environment variables to configure your Django application."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "djangorestframework"
 version = "3.12.1"
+description = "Web APIs for Django, made easy."
+category = "main"
+optional = false
+python-versions = ">=3.5"
 
 [package.dependencies]
 django = ">=2.2"
 
 [[package]]
-category = "main"
-description = "Finnhub API"
 name = "finnhub-python"
+version = "2.3.0"
+description = "Finnhub API"
+category = "main"
 optional = false
 python-versions = "*"
-version = "2.3.0"
 
 [package.dependencies]
 requests = ">=2.22.0"
 
 [[package]]
-category = "main"
-description = "The FlatBuffers serialization format for Python"
 name = "flatbuffers"
+version = "1.12"
+description = "The FlatBuffers serialization format for Python"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.12"
 
 [[package]]
-category = "main"
-description = "Python AST that abstracts the underlying Python version"
 name = "gast"
+version = "0.3.3"
+description = "Python AST that abstracts the underlying Python version"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "0.3.3"
 
 [[package]]
-category = "main"
-description = "Google Authentication Library"
 name = "google-auth"
+version = "1.23.0"
+description = "Google Authentication Library"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
-version = "1.23.0"
 
 [package.dependencies]
 cachetools = ">=2.0.0,<5.0"
 pyasn1-modules = ">=0.2.1"
-setuptools = ">=40.3.0"
+rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.5\""}
 six = ">=1.9.0"
-
-[package.dependencies.rsa]
-python = ">=3.5"
-version = ">=3.1.4,<5"
 
 [package.extras]
 aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)"]
 
 [[package]]
-category = "main"
-description = "Google Authentication Library"
 name = "google-auth-oauthlib"
+version = "0.4.2"
+description = "Google Authentication Library"
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "0.4.2"
 
 [package.dependencies]
 google-auth = "*"
@@ -230,23 +202,23 @@ requests-oauthlib = ">=0.7.0"
 tool = ["click"]
 
 [[package]]
-category = "main"
-description = "pasta is an AST-based Python refactoring library"
 name = "google-pasta"
+version = "0.2.0"
+description = "pasta is an AST-based Python refactoring library"
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.2.0"
 
 [package.dependencies]
 six = "*"
 
 [[package]]
-category = "main"
-description = "HTTP/2-based RPC framework"
 name = "grpcio"
+version = "1.33.2"
+description = "HTTP/2-based RPC framework"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.33.2"
 
 [package.dependencies]
 six = ">=1.5.2"
@@ -255,15 +227,12 @@ six = ">=1.5.2"
 protobuf = ["grpcio-tools (>=1.33.2)"]
 
 [[package]]
-category = "main"
-description = "WSGI HTTP Server for UNIX"
 name = "gunicorn"
+version = "20.0.4"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
 optional = false
 python-versions = ">=3.4"
-version = "20.0.4"
-
-[package.dependencies]
-setuptools = ">=3.0"
 
 [package.extras]
 eventlet = ["eventlet (>=0.9.7)"]
@@ -272,53 +241,53 @@ setproctitle = ["setproctitle"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
-category = "main"
-description = "Read and write HDF5 files from Python"
 name = "h5py"
+version = "2.10.0"
+description = "Read and write HDF5 files from Python"
+category = "main"
 optional = false
 python-versions = "*"
-version = "2.10.0"
 
 [package.dependencies]
 numpy = ">=1.7"
 six = "*"
 
 [[package]]
-category = "main"
-description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
+version = "2.10"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "2.10"
 
 [[package]]
-category = "dev"
-description = "A Python utility / library to sort Python imports."
 name = "isort"
+version = "5.6.4"
+description = "A Python utility / library to sort Python imports."
+category = "dev"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "5.6.4"
 
 [package.extras]
-colors = ["colorama (>=0.4.3,<0.5.0)"]
 pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
 requirements_deprecated_finder = ["pipreqs", "pip-api"]
+colors = ["colorama (>=0.4.3,<0.5.0)"]
 
 [[package]]
-category = "main"
-description = "Lightweight pipelining: using Python functions as pipeline jobs."
 name = "joblib"
+version = "0.17.0"
+description = "Lightweight pipelining: using Python functions as pipeline jobs."
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "0.17.0"
 
 [[package]]
-category = "main"
-description = "Easy data preprocessing and data augmentation for deep learning models"
 name = "keras-preprocessing"
+version = "1.1.2"
+description = "Easy data preprocessing and data augmentation for deep learning models"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.1.2"
 
 [package.dependencies]
 numpy = ">=1.9.1"
@@ -330,39 +299,39 @@ pep8 = ["flake8"]
 tests = ["pandas", "pillow", "tensorflow", "keras", "pytest", "pytest-xdist", "pytest-cov"]
 
 [[package]]
-category = "main"
-description = "A fast implementation of the Cassowary constraint solver"
 name = "kiwisolver"
+version = "1.3.1"
+description = "A fast implementation of the Cassowary constraint solver"
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "1.3.1"
 
 [[package]]
-category = "dev"
-description = "A fast and thorough lazy object proxy."
 name = "lazy-object-proxy"
+version = "1.4.3"
+description = "A fast and thorough lazy object proxy."
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "1.4.3"
 
 [[package]]
-category = "main"
-description = "Python implementation of Markdown."
 name = "markdown"
+version = "3.3.3"
+description = "Python implementation of Markdown."
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "3.3.3"
 
 [package.extras]
 testing = ["coverage", "pyyaml"]
 
 [[package]]
-category = "main"
-description = "Python plotting package"
 name = "matplotlib"
+version = "3.3.2"
+description = "Python plotting package"
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "3.3.2"
 
 [package.dependencies]
 certifi = ">=2020.06.20"
@@ -374,40 +343,40 @@ pyparsing = ">=2.0.3,<2.0.4 || >2.0.4,<2.1.2 || >2.1.2,<2.1.6 || >2.1.6"
 python-dateutil = ">=2.1"
 
 [[package]]
-category = "dev"
-description = "McCabe checker, plugin for flake8"
 name = "mccabe"
+version = "0.6.1"
+description = "McCabe checker, plugin for flake8"
+category = "dev"
 optional = false
 python-versions = "*"
-version = "0.6.1"
 
 [[package]]
-category = "main"
-description = "Utilities for the visualization, and visual analysis, of financial data"
 name = "mplfinance"
+version = "0.12.7a0"
+description = "Utilities for the visualization, and visual analysis, of financial data"
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.12.7a0"
 
 [package.dependencies]
 matplotlib = "*"
 pandas = "*"
 
 [[package]]
-category = "main"
-description = "NumPy is the fundamental package for array computing with Python."
 name = "numpy"
+version = "1.18.5"
+description = "NumPy is the fundamental package for array computing with Python."
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "1.18.5"
 
 [[package]]
-category = "main"
-description = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
 name = "oauthlib"
+version = "3.1.0"
+description = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "3.1.0"
 
 [package.extras]
 rsa = ["cryptography"]
@@ -415,12 +384,12 @@ signals = ["blinker"]
 signedtoken = ["cryptography", "pyjwt (>=1.0.0)"]
 
 [[package]]
-category = "main"
-description = "Optimizing numpys einsum function"
 name = "opt-einsum"
+version = "3.3.0"
+description = "Optimizing numpys einsum function"
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "3.3.0"
 
 [package.dependencies]
 numpy = ">=1.7"
@@ -430,12 +399,12 @@ docs = ["sphinx (1.2.3)", "sphinxcontrib-napoleon", "sphinx-rtd-theme", "numpydo
 tests = ["pytest", "pytest-cov", "pytest-pep8"]
 
 [[package]]
-category = "main"
-description = "Powerful data structures for data analysis, time series, and statistics"
 name = "pandas"
+version = "1.1.4"
+description = "Powerful data structures for data analysis, time series, and statistics"
+category = "main"
 optional = false
 python-versions = ">=3.6.1"
-version = "1.1.4"
 
 [package.dependencies]
 numpy = ">=1.15.4"
@@ -446,109 +415,100 @@ pytz = ">=2017.2"
 test = ["pytest (>=4.0.2)", "pytest-xdist", "hypothesis (>=3.58)"]
 
 [[package]]
-category = "main"
-description = "Python Imaging Library (Fork)"
 name = "pillow"
+version = "8.0.1"
+description = "Python Imaging Library (Fork)"
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "8.0.1"
 
 [[package]]
-category = "main"
-description = "Protocol Buffers"
 name = "protobuf"
+version = "3.13.0"
+description = "Protocol Buffers"
+category = "main"
 optional = false
 python-versions = "*"
-version = "3.13.0"
 
 [package.dependencies]
-setuptools = "*"
 six = ">=1.9"
 
 [[package]]
-category = "main"
-description = "psycopg2 - Python-PostgreSQL Database Adapter"
-name = "psycopg2"
-optional = false
-python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
-version = "2.8.6"
-
-[[package]]
-category = "main"
-description = "psycopg2 - Python-PostgreSQL Database Adapter"
 name = "psycopg2-binary"
+version = "2.8.6"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
-version = "2.8.6"
 
 [[package]]
-category = "main"
-description = "ASN.1 types and codecs"
 name = "pyasn1"
+version = "0.4.8"
+description = "ASN.1 types and codecs"
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.4.8"
 
 [[package]]
-category = "main"
-description = "A collection of ASN.1-based protocols modules."
 name = "pyasn1-modules"
+version = "0.2.8"
+description = "A collection of ASN.1-based protocols modules."
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.2.8"
 
 [package.dependencies]
 pyasn1 = ">=0.4.6,<0.5.0"
 
 [[package]]
-category = "dev"
-description = "python code static checker"
 name = "pylint"
+version = "2.6.0"
+description = "python code static checker"
+category = "dev"
 optional = false
 python-versions = ">=3.5.*"
-version = "2.6.0"
 
 [package.dependencies]
 astroid = ">=2.4.0,<=2.5"
-colorama = "*"
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
 isort = ">=4.2.5,<6"
 mccabe = ">=0.6,<0.7"
 toml = ">=0.7.1"
 
 [[package]]
-category = "main"
-description = "Python parsing module"
 name = "pyparsing"
+version = "2.4.7"
+description = "Python parsing module"
+category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-version = "2.4.7"
 
 [[package]]
-category = "main"
-description = "Extensions to the standard Python datetime module"
 name = "python-dateutil"
+version = "2.8.1"
+description = "Extensions to the standard Python datetime module"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
-version = "2.8.1"
 
 [package.dependencies]
 six = ">=1.5"
 
 [[package]]
-category = "main"
-description = "World timezone definitions, modern and historical"
 name = "pytz"
+version = "2020.1"
+description = "World timezone definitions, modern and historical"
+category = "main"
 optional = false
 python-versions = "*"
-version = "2020.1"
 
 [[package]]
-category = "main"
-description = "Python HTTP for Humans."
 name = "requests"
+version = "2.24.0"
+description = "Python HTTP for Humans."
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-version = "2.24.0"
 
 [package.dependencies]
 certifi = ">=2017.4.17"
@@ -561,39 +521,38 @@ security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
 
 [[package]]
-category = "main"
-description = "OAuthlib authentication support for Requests."
 name = "requests-oauthlib"
+version = "1.3.0"
+description = "OAuthlib authentication support for Requests."
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "1.3.0"
 
 [package.dependencies]
 oauthlib = ">=3.0.0"
 requests = ">=2.0.0"
 
 [package.extras]
-rsa = ["oauthlib (>=3.0.0)"]
+rsa = ["oauthlib[signedtoken] (>=3.0.0)"]
 
 [[package]]
-category = "main"
-description = "Pure-Python RSA implementation"
-marker = "python_version >= \"3.5\""
 name = "rsa"
+version = "4.6"
+description = "Pure-Python RSA implementation"
+category = "main"
 optional = false
 python-versions = ">=3.5, <4"
-version = "4.6"
 
 [package.dependencies]
 pyasn1 = ">=0.1.3"
 
 [[package]]
-category = "main"
-description = "A set of python modules for machine learning and data mining"
 name = "scikit-learn"
+version = "0.23.2"
+description = "A set of python modules for machine learning and data mining"
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "0.23.2"
 
 [package.dependencies]
 joblib = ">=0.11"
@@ -605,50 +564,50 @@ threadpoolctl = ">=2.0.0"
 alldeps = ["numpy (>=1.13.3)", "scipy (>=0.19.1)"]
 
 [[package]]
-category = "main"
-description = "SciPy: Scientific Library for Python"
 name = "scipy"
+version = "1.5.3"
+description = "SciPy: Scientific Library for Python"
+category = "main"
 optional = false
 python-versions = ">=3.6"
-version = "1.5.3"
 
 [package.dependencies]
 numpy = ">=1.14.5"
 
 [[package]]
-category = "main"
-description = "Python 2 and 3 compatibility utilities"
 name = "six"
+version = "1.15.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
-version = "1.15.0"
 
 [[package]]
-category = "main"
-description = "A set of python modules for machine learning and data mining"
 name = "sklearn"
+version = "0.0"
+description = "A set of python modules for machine learning and data mining"
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.0"
 
 [package.dependencies]
 scikit-learn = "*"
 
 [[package]]
-category = "main"
-description = "A non-validating SQL parser."
 name = "sqlparse"
+version = "0.4.1"
+description = "A non-validating SQL parser."
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "0.4.1"
 
 [[package]]
-category = "main"
-description = "TensorBoard lets you watch Tensors Flow"
 name = "tb-nightly"
+version = "2.4.0a20201103"
+description = "TensorBoard lets you watch Tensors Flow"
+category = "main"
 optional = false
 python-versions = ">= 2.7, != 3.0.*, != 3.1.*"
-version = "2.4.0a20201103"
 
 [package.dependencies]
 absl-py = ">=0.4"
@@ -659,46 +618,41 @@ markdown = ">=2.6.8"
 numpy = ">=1.12.0"
 protobuf = ">=3.6.0"
 requests = ">=2.21.0,<3"
-setuptools = ">=41.0.0"
 six = ">=1.10.0"
 tensorboard-plugin-wit = ">=1.6.0"
 werkzeug = ">=0.11.15"
 
-[package.dependencies.wheel]
-python = ">=3"
-version = ">=0.26"
-
 [[package]]
-category = "main"
-description = "What-If Tool TensorBoard plugin."
 name = "tensorboard-plugin-wit"
-optional = false
-python-versions = "*"
 version = "1.7.0"
+description = "What-If Tool TensorBoard plugin."
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
-category = "main"
-description = "ANSII Color formatting for output in terminal."
 name = "termcolor"
-optional = false
-python-versions = "*"
 version = "1.1.0"
+description = "ANSII Color formatting for output in terminal."
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
-category = "main"
-description = "TensorFlow Estimator."
 name = "tf-estimator-nightly"
+version = "2.5.0.dev2020110301"
+description = "TensorFlow Estimator."
+category = "main"
 optional = false
 python-versions = "*"
-version = "2.5.0.dev2020110301"
 
 [[package]]
-category = "main"
-description = "TensorFlow is an open source machine learning framework for everyone."
 name = "tf-nightly"
+version = "2.4.0.dev20200903"
+description = "TensorFlow is an open source machine learning framework for everyone."
+category = "main"
 optional = false
 python-versions = "*"
-version = "2.4.0.dev20200903"
 
 [package.dependencies]
 absl-py = ">=0.7.0"
@@ -717,40 +671,39 @@ tb-nightly = ">=2.4.0a0,<3.0.0a0"
 termcolor = ">=1.1.0"
 tf-estimator-nightly = "*"
 typing-extensions = ">=3.7.4.2"
-wheel = ">=0.26"
 wrapt = ">=1.11.1"
 
 [[package]]
-category = "main"
-description = "threadpoolctl"
 name = "threadpoolctl"
+version = "2.1.0"
+description = "threadpoolctl"
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "2.1.0"
 
 [[package]]
-category = "dev"
-description = "Python Library for Tom's Obvious, Minimal Language"
 name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-version = "0.10.2"
 
 [[package]]
-category = "main"
-description = "Backported and Experimental Type Hints for Python 3.5+"
 name = "typing-extensions"
+version = "3.7.4.3"
+description = "Backported and Experimental Type Hints for Python 3.5+"
+category = "main"
 optional = false
 python-versions = "*"
-version = "3.7.4.3"
 
 [[package]]
-category = "main"
-description = "HTTP library with thread-safe connection pooling, file post, and more."
 name = "urllib3"
+version = "1.25.11"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
-version = "1.25.11"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
@@ -758,50 +711,40 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
 
 [[package]]
-category = "main"
-description = "The comprehensive WSGI web application library."
 name = "werkzeug"
+version = "1.0.1"
+description = "The comprehensive WSGI web application library."
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-version = "1.0.1"
 
 [package.extras]
 dev = ["pytest", "pytest-timeout", "coverage", "tox", "sphinx", "pallets-sphinx-themes", "sphinx-issues"]
 watchdog = ["watchdog"]
 
 [[package]]
-category = "main"
-description = "A built-package format for Python"
-name = "wheel"
-optional = false
-python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
-version = "0.35.1"
-
-[package.extras]
-test = ["pytest (>=3.0.0)", "pytest-cov"]
-
-[[package]]
-category = "main"
-description = "Radically simplified static file serving for WSGI applications"
 name = "whitenoise"
+version = "5.2.0"
+description = "Radically simplified static file serving for WSGI applications"
+category = "main"
 optional = false
 python-versions = ">=3.5, <4"
-version = "5.2.0"
 
 [package.extras]
 brotli = ["brotli"]
 
 [[package]]
-category = "main"
-description = "Module for decorators, wrappers and monkey patching."
 name = "wrapt"
+version = "1.12.1"
+description = "Module for decorators, wrappers and monkey patching."
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.12.1"
 
 [metadata]
-content-hash = "4d101c4e6eafebcfaa9b1c7a4dcd5caf088f17e16f868063a009c0356b243f53"
-python-versions = "^3.8"
+lock-version = "1.1"
+python-versions = "~3.8"
+content-hash = "ed6749c3ff2fd5281f7ab2239d30e66ab613c9a0118930464265985fd44a52b5"
 
 [metadata.files]
 absl-py = [
@@ -840,10 +783,6 @@ cycler = [
     {file = "cycler-0.10.0-py2.py3-none-any.whl", hash = "sha256:1d8a5ae1ff6c5cf9b93e8811e581232ad8920aeec647c37316ceac982b08cb2d"},
     {file = "cycler-0.10.0.tar.gz", hash = "sha256:cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"},
 ]
-dj-database-url = [
-    {file = "dj-database-url-0.5.0.tar.gz", hash = "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163"},
-    {file = "dj_database_url-0.5.0-py2.py3-none-any.whl", hash = "sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"},
-]
 django = [
     {file = "Django-3.1.2-py3-none-any.whl", hash = "sha256:c93c28ccf1d094cbd00d860e83128a39e45d2c571d3b54361713aaaf9a94cac4"},
     {file = "Django-3.1.2.tar.gz", hash = "sha256:a2127ad0150ec6966655bedf15dbbff9697cc86d61653db2da1afa506c0b04cc"},
@@ -859,10 +798,6 @@ django-crispy-forms = [
 django-environ = [
     {file = "django-environ-0.4.5.tar.gz", hash = "sha256:6c9d87660142608f63ec7d5ce5564c49b603ea8ff25da595fd6098f6dc82afde"},
     {file = "django_environ-0.4.5-py2.py3-none-any.whl", hash = "sha256:c57b3c11ec1f319d9474e3e5a79134f40174b17c7cc024bbb2fad84646b120c4"},
-]
-django-heroku = [
-    {file = "django-heroku-0.3.1.tar.gz", hash = "sha256:6af4bc3ae4a9b55eaad6dbe5164918982d2762661aebc9f83d9fa49f6009514e"},
-    {file = "django_heroku-0.3.1-py2.py3-none-any.whl", hash = "sha256:2bc690aab89eedbe01311752320a9a12e7548e3b0ed102681acc5736a41a4762"},
 ]
 djangorestframework = [
     {file = "djangorestframework-3.12.1-py3-none-any.whl", hash = "sha256:5c5071fcbad6dce16f566d492015c829ddb0df42965d488b878594aabc3aed21"},
@@ -1186,23 +1121,6 @@ protobuf = [
     {file = "protobuf-3.13.0-py2.py3-none-any.whl", hash = "sha256:d69697acac76d9f250ab745b46c725edf3e98ac24763990b24d58c16c642947a"},
     {file = "protobuf-3.13.0.tar.gz", hash = "sha256:6a82e0c8bb2bf58f606040cc5814e07715b2094caeba281e2e7d0b0e2e397db5"},
 ]
-psycopg2 = [
-    {file = "psycopg2-2.8.6-cp27-cp27m-win32.whl", hash = "sha256:068115e13c70dc5982dfc00c5d70437fe37c014c808acce119b5448361c03725"},
-    {file = "psycopg2-2.8.6-cp27-cp27m-win_amd64.whl", hash = "sha256:d160744652e81c80627a909a0e808f3c6653a40af435744de037e3172cf277f5"},
-    {file = "psycopg2-2.8.6-cp34-cp34m-win32.whl", hash = "sha256:b8cae8b2f022efa1f011cc753adb9cbadfa5a184431d09b273fb49b4167561ad"},
-    {file = "psycopg2-2.8.6-cp34-cp34m-win_amd64.whl", hash = "sha256:f22ea9b67aea4f4a1718300908a2fb62b3e4276cf00bd829a97ab5894af42ea3"},
-    {file = "psycopg2-2.8.6-cp35-cp35m-win32.whl", hash = "sha256:26e7fd115a6db75267b325de0fba089b911a4a12ebd3d0b5e7acb7028bc46821"},
-    {file = "psycopg2-2.8.6-cp35-cp35m-win_amd64.whl", hash = "sha256:00195b5f6832dbf2876b8bf77f12bdce648224c89c880719c745b90515233301"},
-    {file = "psycopg2-2.8.6-cp36-cp36m-win32.whl", hash = "sha256:a49833abfdede8985ba3f3ec641f771cca215479f41523e99dace96d5b8cce2a"},
-    {file = "psycopg2-2.8.6-cp36-cp36m-win_amd64.whl", hash = "sha256:f974c96fca34ae9e4f49839ba6b78addf0346777b46c4da27a7bf54f48d3057d"},
-    {file = "psycopg2-2.8.6-cp37-cp37m-win32.whl", hash = "sha256:6a3d9efb6f36f1fe6aa8dbb5af55e067db802502c55a9defa47c5a1dad41df84"},
-    {file = "psycopg2-2.8.6-cp37-cp37m-win_amd64.whl", hash = "sha256:56fee7f818d032f802b8eed81ef0c1232b8b42390df189cab9cfa87573fe52c5"},
-    {file = "psycopg2-2.8.6-cp38-cp38-win32.whl", hash = "sha256:ad2fe8a37be669082e61fb001c185ffb58867fdbb3e7a6b0b0d2ffe232353a3e"},
-    {file = "psycopg2-2.8.6-cp38-cp38-win_amd64.whl", hash = "sha256:56007a226b8e95aa980ada7abdea6b40b75ce62a433bd27cec7a8178d57f4051"},
-    {file = "psycopg2-2.8.6-cp39-cp39-win32.whl", hash = "sha256:2c93d4d16933fea5bbacbe1aaf8fa8c1348740b2e50b3735d1b0bf8154cbf0f3"},
-    {file = "psycopg2-2.8.6-cp39-cp39-win_amd64.whl", hash = "sha256:d5062ae50b222da28253059880a871dc87e099c25cb68acf613d9d227413d6f7"},
-    {file = "psycopg2-2.8.6.tar.gz", hash = "sha256:fb23f6c71107c37fd667cb4ea363ddeb936b348bbd6449278eb92c189699f543"},
-]
 psycopg2-binary = [
     {file = "psycopg2-binary-2.8.6.tar.gz", hash = "sha256:11b9c0ebce097180129e422379b824ae21c8f2a6596b159c7659e2e5a00e1aa0"},
     {file = "psycopg2_binary-2.8.6-cp27-cp27m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:d14b140a4439d816e3b1229a4a525df917d6ea22a0771a2a78332273fd9528a4"},
@@ -1392,10 +1310,6 @@ urllib3 = [
 werkzeug = [
     {file = "Werkzeug-1.0.1-py2.py3-none-any.whl", hash = "sha256:2de2a5db0baeae7b2d2664949077c2ac63fbd16d98da0ff71837f7d1dea3fd43"},
     {file = "Werkzeug-1.0.1.tar.gz", hash = "sha256:6c80b1e5ad3665290ea39320b91e1be1e0d5f60652b964a3070216de83d2e47c"},
-]
-wheel = [
-    {file = "wheel-0.35.1-py2.py3-none-any.whl", hash = "sha256:497add53525d16c173c2c1c733b8f655510e909ea78cc0e29d374243544b77a2"},
-    {file = "wheel-0.35.1.tar.gz", hash = "sha256:99a22d87add3f634ff917310a3d87e499f19e663413a52eb9232c447aa646c9f"},
 ]
 whitenoise = [
     {file = "whitenoise-5.2.0-py2.py3-none-any.whl", hash = "sha256:05d00198c777028d72d8b0bbd234db605ef6d60e9410125124002518a48e515d"},
