@@ -3,6 +3,11 @@
 
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+      <div role="alert" id="message" class="alert alert-success {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+    {% endfor %}
+{% endif %}
 <div class="full-heigh">
   <h1 class="content text-center mb-4">You've been logged out</h1>
 

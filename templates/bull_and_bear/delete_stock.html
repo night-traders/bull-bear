@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+  <h1>Delete Stock from Watchlist</h1>
+
+  <h2>{{stock.pk}}</h2>
+  
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this?</p>
+    <input type="submit" value="Confirm Delete">
+    
+  </form>
+  
+{% endblock content %}
